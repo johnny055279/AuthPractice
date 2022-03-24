@@ -23,6 +23,12 @@ namespace Basic.Controllers
             return View();
         }
 
+        [Authorize(Policy = "CustomClaim")]
+        public IActionResult CustomSecret()
+        {
+            return RedirectToAction("Secret");
+        }
+
         public IActionResult Authenticate()
         {
             var baseAuthCliams = new List<Claim>{
